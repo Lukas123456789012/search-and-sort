@@ -16,8 +16,29 @@ public class Insertion
    */
   public static int[] sort(int[] arr) {
     // Your algorithm goes here!
-
-  }
+    int g =1;
+    int check1 = 1;
+    for (int i=0; i<arr.length-1; i++) {
+        int q=+1;
+        int j = i-1;
+        if ( check1 == 1) {
+            if (j >=0){
+                if (arr[i] < arr[j]) {
+                    j--;
+                } else{
+                    check1 = 0;
+                }
+            } else {
+                check1 =0;
+            }
+        } else {
+            int temp = arr[i];
+            int k = i;
+        }
+    }
+    }
+    
+  
   
   public static void main(String[] args) {
     int[] arr = {53,85,93,25,39,27,42,5,24,45,33,51,5,80,4,7,91,
