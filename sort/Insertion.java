@@ -15,43 +15,15 @@ public class Insertion
      * Returns the sorted array
      */
     public static int[] sort(int[] arr) {
-        // Your algorithm goes here!
-        int Check3 = 1;
-        int check4 = 1;
-        if (Check3 == 1) {
-            int check1 =1;
-            for (int i=0; i<arr.length-1; i++) {
-                int j = i-1;
-                int Check2 = 1;
-                if ( check1 == 1) {
-                    if (j >=0){
-                        if (arr[i] < arr[j]) {
-                            j--;
-                        } else{
-                            check1 = 0;
-                        }
-                    } else {
-                        check1 =0;
-                    }
-                } else {
-                    int temp = arr[i];
-                    int k = i;
-                    if (Check2 == 1) {
-                        if (k > j +1) {
-                            arr[k]= arr[k-1];
-                            k--;
-                        } else {
-                            j-=2;
-                            arr[k] = temp;
-                            Check2 = 0;
-                        }
-                    } else {
-                        Check3 = 0;
-                    }
-                }
-
-            }    
-        }    
+        for (int i = 1; i < arr.length; ++i) {
+            int k = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > k) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = k;
+        }
         return arr;
     }
 
