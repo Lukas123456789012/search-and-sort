@@ -16,33 +16,23 @@ public class Selection
      */
     public static int[] sort(int[] arr) {
         // Your algorithm goes here!
-        int i = 0;
-        int j;  
+        int i = 0;  
         int temp;
         int min; 
         int minidex;
-        int check = 1;
         for (i=0; i < arr.length -1;i++) {
-            if (i < arr.length -1) {
-                j= i;
-                min = arr[j];
-                minidex =j;
-                temp = arr[j];
-                if (check ==1) {
-                    if (min > arr[j+1]) {
-                        temp = arr[j+1];
-                        minidex = j +1;
-                    }
-                    if (j < arr.length-1) {
-                        j++;
-                    } else {
-                        arr[i] = min;
-                        arr[minidex] = temp;
-                        i++;
-                        check = 0;
-                    }
+            int d=i;
+            min = arr[d];
+            minidex =d;
+            temp = arr[d];
+            for (int j = d; j <arr.length- 1; j++) {
+                if (min > arr[j+1]) {
+                    min = arr[j+1];
+                    minidex = j +1;
                 }
             }
+            arr[i] = min;
+            arr[minidex] = temp;
         }
         return arr;  
     }

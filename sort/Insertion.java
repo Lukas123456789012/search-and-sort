@@ -3,10 +3,10 @@ package sort;
 import java.util.Arrays;
 
 /**
- * Write a description of class Insertion here.
+ * This code takes a array of numbers and distrubutes them in order from biggest to smallest
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Lukas Halvorsen 
+ * @9/20/22
  */
 public class Insertion
 {
