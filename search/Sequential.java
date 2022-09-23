@@ -1,6 +1,4 @@
 package search;
-
-
 /**
  * Write a description of class SequentialSearch here.
  * 
@@ -14,9 +12,16 @@ public class Sequential
    * Returns the index of the target value, or -1 if not found
    */
   public static int search(int[] arr, int target) {
-    // Your algorithm goes here!
-    
-  }
+int x = target;
+for (int i = 0; i < arr.length; i++) {
+    if (arr[i] == x) {
+        return i;
+    }
+
+}
+
+      return -1;
+  } 
   
   public static void main(String[] args) {
     int[] arr = {53,85,93,25,39,27,42,5,24,45,33,51,5,80,4,7,91,
