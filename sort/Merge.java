@@ -14,50 +14,51 @@ public class Merge
     /**
      * Returns the sorted array
      */
-    public static int[] sort(int[] arr, int l, int r) {
-        int m = l + (r - l) / 2;
-        if (l<r) {
-            merge(arr, l, m, r);
+    static void merge(int arr[], int l, int m, int r)
+    {
+        int left = m - l + 1;
+        int right = r - m;
+        int L[] = new int[left];
+        int R[] = new int[right];
+        for (int i = 0; i < left; ++i) {
+            L[i] = arr[l + i];
         }
-        return arr;
-    }
-
-    public static void merge(int arr[], int l, int m, int r) {
-
-        int middle = arr.length/2;
-        int ll = middle;
-        int rl = arr.length - ll;
-        int L[] = new int[ll];
-        int R[] = new int[rl];
-        for (int i = 0; i < L.length; i++) {
-            L[i] = arr[i];
+        for (int j = 0; j < right; ++j) {
+            R[j] = arr[m + 1 + j];
         }
-        for (int j = 0; j < R.length; j++) {
-            R[j] = arr[j+ll];
-        }
-        int i = 0;
-        int j = 0;
+        int i = 0, j = 0;
         int k = l;
-        while (i < ll && j < rl) {
+        while (i < left && j < right) {
             if (L[i] <= R[j]) {
                 arr[k] = L[i];
                 i++;
-            } else {
-                arr[k] = R[j];
-                i++;
             }
+            else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
         }
-        while (i < ll) {
+        while (i < left) {
             arr[k] = L[i];
             i++;
             k++;
         }
-        while (j < rl) {
+        while (j < right) {
             arr[k] = R[j];
             j++;
             k++;
         }
-
+    }
+    static int[] sort(int arr[], int l, int r)
+    {
+        if (l < r) {
+            int m = l + (r - l) / 2;
+            sort(arr, l, m);
+            sort(arr, m + 1, r);
+            merge(arr, l, m, r);
+        }
+        return arr;
     }
 
     public static void main(String[] args) {
@@ -66,7 +67,8 @@ public class Merge
                 73,54,51,25,33,20,52,79,97,70,54,63,49};    
 
         // Test the sort
-        testSort(sort1(arr, 0, arr.length - 1));
+        int f = arr.length -1;
+        testSort(sort(arr, 0, f));
     }
 
     public static void testSort(int[] arr) {
